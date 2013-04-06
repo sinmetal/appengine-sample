@@ -8,8 +8,8 @@ apply plugin: "eclipse"
 // maven-publish, maven2Gradle, build-dashboard
 // checkstyle, findbugs, jdepend, pmd
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
 
 ext {
 	slim3Version = "1.0.16"
