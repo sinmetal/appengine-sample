@@ -18,7 +18,7 @@ ext {
 
 	generatedSrc = ".apt_generated"
 	testGeneratedDir = "www-test"
-	generatedWar = "src/main/webapp"
+	generatedWar = "war"
 
 	jsonpullparserGenclassPostfix = "Gen"
 	jsonpullparserDebug = true
