@@ -19,12 +19,30 @@ public class ExampleController extends Controller {
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 		Entity entity = new Entity("example", "hoge");
 		ds.put(entity);
+		System.out.println("datastore put example hoge");
 		return null;
 	}
 
 	public static void executeQuery() {
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 		Queue queue = QueueFactory.getDefaultQueue();
+		try {
+			Transaction txn = ds.beginTransaction();
+
+			// ...
+
+			queue.add(TaskOptions.Builder.withUrl("/tq/example"));
+
+			// ...
+			txn.commit();
+		} catch (DatastoreFailureException e) {
+			throw e;
+		}
+	}
+	
+	public static void executeQueryNamed() {
+		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+		Queue queue = QueueFactory.getQueue("example");
 		try {
 			Transaction txn = ds.beginTransaction();
 

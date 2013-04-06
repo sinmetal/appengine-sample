@@ -1,12 +1,15 @@
 package org.sinmetal.sample.controller;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+
 import java.util.List;
 import java.util.concurrent.Future;
 
-import org.slim3.tester.ControllerTestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.slim3.tester.ControllerTestCase;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -24,10 +27,7 @@ import com.google.apphosting.api.ApiProxy.Delegate;
 import com.google.apphosting.api.ApiProxy.Environment;
 import com.google.apphosting.api.ApiProxy.LogRecord;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
-public class PutTaskQueueControllerTest extends ControllerTestCase {
+public class PutTaskQueueNamedControllerTest extends ControllerTestCase {
 
 	LocalServiceTestHelper helper;
 
@@ -101,8 +101,8 @@ public class PutTaskQueueControllerTest extends ControllerTestCase {
 
 	@Test
 	public void TaskQueueAddTest() throws Exception {
-		tester.start("/putTaskQueue");
-		PutTaskQueueController controller = tester.getController();
+		tester.start("/putTaskQueueNamed");
+		PutTaskQueueNamedController controller = tester.getController();
 		assertThat(controller, is(notNullValue()));
 		assertThat(tester.isRedirect(), is(false));
 		assertThat(tester.getDestinationPath(), is(nullValue()));
@@ -112,8 +112,8 @@ public class PutTaskQueueControllerTest extends ControllerTestCase {
 
 	@Test
 	public void TaskQueueRunTest() throws Exception {
-		tester.start("/putTaskQueue");
-		PutTaskQueueController controller = tester.getController();
+		tester.start("/putTaskQueueNamed");
+		PutTaskQueueNamedController controller = tester.getController();
 		assertThat(controller, is(notNullValue()));
 		assertThat(tester.isRedirect(), is(false));
 		assertThat(tester.getDestinationPath(), is(nullValue()));
