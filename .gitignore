@@ -16,6 +16,6 @@ war/WEB-INF/lib/appengine-*
 
 build
 
-eclipse.lib/
+lib/
 libsrc
 www-test/

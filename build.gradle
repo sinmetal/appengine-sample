@@ -173,7 +173,7 @@ eclipse {
 task copyAptProcessorToEclipseLib(type: Copy) {
 	eclipseJdt.dependsOn copyAptProcessorToEclipseLib
 
-	into "eclipse.lib"
+	into "lib"
 	from configurations.aptCompile5 + configurations.aptCompile6
 }
 
@@ -197,10 +197,10 @@ eclipseJdt {
 					kind: "PLUGIN", id: "org.eclipse.jst.ws.annotations.core", enabled: true, runInBatchMode: false
 					)
 			"factorypathentry"(
-					kind: "WKSPJAR", id: "/${project.name}/eclipse.lib/slim3-gen-${slim3Version}.jar", enabled: true, runInBatchMode: false
+					kind: "WKSPJAR", id: "/${project.name}/lib/slim3-gen-${slim3Version}.jar", enabled: true, runInBatchMode: false
 					)
 			"factorypathentry"(
-					kind: "WKSPJAR", id: "/${project.name}/eclipse.lib/jsonpullparser-apt-${jppVersion}.jar", enabled: true, runInBatchMode: false
+					kind: "WKSPJAR", id: "/${project.name}/lib/jsonpullparser-apt-${jppVersion}.jar", enabled: true, runInBatchMode: false
 					)
 		}
 		w.close()
@@ -234,6 +234,6 @@ task cleanMiscEclipse {
 	doLast {
 		delete ".settings"
 		delete ".factorypath"
-		delete "eclipse.lib"
+		delete "lib"
 	}
 }
