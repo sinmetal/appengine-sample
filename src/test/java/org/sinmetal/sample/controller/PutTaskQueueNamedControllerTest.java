@@ -34,10 +34,10 @@ public class PutTaskQueueNamedControllerTest extends ControllerTestCase {
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
-		
+
 		LocalTaskQueueTestConfig taskQueueTestConfig = new LocalTaskQueueTestConfig();
-		taskQueueTestConfig.setDisableAutoTaskExecution(true);
-		
+		taskQueueTestConfig.setQueueXmlPath("war/WEB-INF/queue.xml").setDisableAutoTaskExecution(true);
+
 		helper = new LocalServiceTestHelper(taskQueueTestConfig);
 		helper.setUp();
 		ApiProxy.setDelegate(new TQDelegate());
@@ -93,7 +93,8 @@ public class PutTaskQueueNamedControllerTest extends ControllerTestCase {
 				taskPb.mergeFrom(request);
 				for (int i = 0; i < taskPb.addRequestSize(); i++) {
 					TaskQueueAddRequest addRequest = taskPb.getAddRequest(i);
-					System.out.println("add taskqueue url = " + addRequest.getUrl());
+					System.out.println("add taskqueue url = "
+							+ addRequest.getUrl());
 				}
 			}
 		}

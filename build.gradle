@@ -55,6 +55,8 @@ dependencies {
 	}
 	compile "com.google.appengine:appengine-api-1.0-sdk:${appengineVersion}"
 	compile "com.google.appengine:appengine-api-labs:${appengineVersion}"
+	
+	compile "org.mortbay.jetty:jetty:6.1.26"
 
 	aptCompile5("org.slim3:slim3-gen:${slim3Version}") {
 		exclude group: "org.apache.ant", module: "ant"
