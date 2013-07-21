@@ -2,6 +2,7 @@
 .factorypath
 .classpath
 .settings/
+eclipse.lib
 
 target/
 .apt_generated/
